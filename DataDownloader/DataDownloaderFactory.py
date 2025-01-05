@@ -1,5 +1,5 @@
-from YahooDataDownloader import YahooDataDownloader
-import YahooDataSources as data
+from DataDownloader.YahooDataDownloader import YahooDataDownloader
+import DataDownloader.YahooDataSources as data
 import pandas as pd
 
 class DataDownloaderFactory:
