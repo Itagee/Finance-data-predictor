@@ -6,10 +6,16 @@ from DataDownloader.DataDownloaderFactory import DataDownloaderFactory
 
 class TestYahooDataDownloader(unittest.TestCase):
 
-    @patch('DataDownloader.YahooDataDownloader.YahooDataDownloader.download_yahoo_data')
-    def test_when_given_data_is_provided_then_specific_data_is_downloaded_and_returned(self, mock_downloaded):
+    @patch(
+        'DataDownloader.YahooDataDownloader.YahooDataDownloader.download_yahoo_data'
+    )
+    def test_when_given_data_is_provided_then_specific_data_is_downloaded(
+            self, mock_downloaded
+    ):
         data = {
-            'Date': pd.date_range(start='2023-01-01', end='2023-01-12', freq='B'),
+            'Date': pd.date_range(start='2023-01-01',
+                                  end='2023-01-12',
+                                  freq='B'),
             'Open': [150, 152, 151, 149, 148, 145, 146, 148, 149],
             'High': [155, 157, 156, 154, 153, 150, 151, 153, 152],
             'Low': [148, 150, 149, 147, 146, 143, 144, 146, 145],
