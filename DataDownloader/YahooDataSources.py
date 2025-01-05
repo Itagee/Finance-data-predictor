@@ -4,4 +4,5 @@ data_sources = {
     "Tesla": "TSLA",
     "Amazon": "AMZN",
     "Microsoft": "MSFT",
+    "Facebook": "META",
 }
