@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class DataValidator:
     def __init__(self, data):
         self.data = pd.DataFrame(data)
@@ -32,7 +33,9 @@ class DataValidator:
         }
 
     def check_for_negative_values(self):
-        negative_values = self.data[['Open', 'High', 'Low', 'Close']].lt(0).sum().sum()
+        negative_values = self.data[
+            ['Open', 'High', 'Low', 'Close']
+        ].lt(0).sum().sum()
         return negative_values
 
     def get_data(self):

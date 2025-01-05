@@ -1,18 +1,19 @@
 import pandas as pd
 
+
 class FeatureEngineeringCalculator:
-    def __init__(self, data, peroid):
+    def __init__(self, data, period):
         self.data = pd.DataFrame(data)
-        self.peroid = peroid
+        self.period = period
 
     def get_simple_moving_average_based_on_close_prices(self):
-        return self.data['close'].rolling(window=self.peroid).mean()
+        return self.data['close'].rolling(window=self.period).mean()
 
     def get_exponential_moving_average_based_on_close_prices(self):
-        return self.data['close'].ewm(span=self.peroid, adjust=False).mean()
+        return self.data['close'].ewm(span=self.period, adjust=False).mean()
 
     def calculate_rsi(self):
-         pass
+        pass
 
     def calculate_macd(self):
         pass
