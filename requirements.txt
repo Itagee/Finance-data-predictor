@@ -1,3 +1,4 @@
 pandas==1.4.3
 yfinance==0.2.18
 unittest2==1.1.0
+
