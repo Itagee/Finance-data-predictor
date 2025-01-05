@@ -1,5 +1,6 @@
 import yfinance as yf
 
+
 class YahooDataDownloader:
     def __init__(self, data_type, start_date, end_date):
         self.dataType = data_type
@@ -11,9 +12,3 @@ class YahooDataDownloader:
 
     def download_yahoo_data(self):
         return yf.download(self.dataType, self.startDate, self.endDate)
-
-
-
-
-
-
