@@ -1,4 +1,7 @@
-lint:
-    flake8 .
+PYTHON = python3
+
 test:
-    $(PYTHON) -m unittest discover -s tests -p "*.py"
+	$(PYTHON) -m unittest discover -s tests -p "*.py"
+
+lint:
+	flake8 .
