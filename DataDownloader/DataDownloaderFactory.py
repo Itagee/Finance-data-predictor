@@ -1,13 +1,13 @@
-from YahooDataDownloader import YahooDataDownloader
-import YahooDataSources as Data
+from DataDownloader.YahooDataDownloader import YahooDataDownloader
+import DataDownloader.YahooDataSources as Data
 
 
 class DataDownloaderFactory:
     @staticmethod
     def download_data(data_type, start_date, end_date):
 
-        if data_type in data.data_sources.keys():
-            symbol = data.data_sources[data_type]
+        if data_type in Data.data_sources.keys():
+            symbol = Data.data_sources[data_type]
             downloader = YahooDataDownloader(data_type=symbol,
                                              start_date=start_date,
                                              end_date=end_date)

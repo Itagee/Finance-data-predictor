@@ -7,7 +7,8 @@ from DataDownloader.DataDownloaderFactory import DataDownloaderFactory
 class TestYahooDataDownloader(unittest.TestCase):
 
     @patch(
-        'DataDownloader.YahooDataDownloader.YahooDataDownloader.download_yahoo_data'
+        'DataDownloader.YahooDataDownloader.'
+        'YahooDataDownloader.download_yahoo_data'
     )
     def test_when_given_data_is_provided_then_specific_data_is_downloaded(
             self, mock_downloaded
