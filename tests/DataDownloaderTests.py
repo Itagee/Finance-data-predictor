@@ -32,6 +32,14 @@ class TestYahooDataDownloader(unittest.TestCase):
                                                      '2023-01-12')
         pd.testing.assert_frame_equal(data, mock_data)
 
+    def test_when_not_defined_company_name_is_provided_then_exception_is_thrown(self):
+        with self.assertRaises(ValueError) as context:
+            DataDownloaderFactory().download_data('Januszex',
+                                                  '2023-01-01',
+                                                  '2023-01-12')
+
+        self.assertEqual(str(context.exception), 'Unknown type of data: Januszex')
+
 
 if __name__ == '__main__':
     unittest.main()
