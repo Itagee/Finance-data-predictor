@@ -29,7 +29,9 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
             self):
         sma = self.calculator.get_simple_moving_average_based_on_close_prices()
         for i in range(4):
-            self.assertTrue(pd.isna(sma[i]), f"Expected NaN at index {i}, but got {sma[i]}")
+            self.assertTrue(pd.isna(sma[i]),
+                            f"Expected NaN at index {i}, but got {sma[i]}"
+                            )
 
     def test_when_period_is_5_days_then_sma_values_are_returned(self):
 
