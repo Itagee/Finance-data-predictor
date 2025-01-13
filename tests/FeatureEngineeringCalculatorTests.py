@@ -51,9 +51,9 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
         self.assertEqual(sma[8], 149.6,
                          f"Expected 149.6 on day 9, "
                          f"but got {sma[8]}")
-        self.assertEqual(len(sma), len(self.data['Close']),
+        self.assertEqual(len(sma), len(self.data['close']),
                          f"Expected SMA length of "
-                         f"{len(self.data['Close'])}, "
+                         f"{len(self.data['close'])}, "
                          f"but got {len(sma)}")
         self.assertFalse(sma[4:].isna().any(),
                          "SMA contains NaN values after day 5, "
