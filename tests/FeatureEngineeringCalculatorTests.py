@@ -1,6 +1,8 @@
 import unittest
 import pandas as pd
-from DataCalculator.FeatureEngineeringCalculator import FeatureEngineeringCalculator
+from DataCalculator.FeatureEngineeringCalculator import (
+    FeatureEngineeringCalculator
+)
 
 
 class TestFeatureEngineeringCalculator(unittest.TestCase):
@@ -18,9 +20,13 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
                        1250000, 1300000, 1400000, 1350000]
         }
 
-        self.calculator = FeatureEngineeringCalculator(data=self.data, period=5)
+        self.calculator = FeatureEngineeringCalculator(
+            data=self.data,
+            period=5
+        )
 
-    def test_when_period_id_5_days_then_4_nan_is_returned(self):
+    def test_when_period_id_5_days_then_4_nan_is_returned(
+            self):
         sma = self.calculator.get_simple_moving_average_based_on_close_prices()
         for i in range(4):
             self.assertTrue(pd.isna(sma[i]), f"Expected NaN at index {i}, but got {sma[i]}")
