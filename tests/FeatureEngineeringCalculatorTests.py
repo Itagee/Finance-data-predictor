@@ -19,7 +19,9 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
             'Volume': [1000000, 1200000, 1100000, 1300000,
                        1400000, 1250000, 1300000, 1400000, 1350000]
         }
-        self.calculator = FeatureEngineeringCalculator(data=self.data, period=5)
+        self.calculator = FeatureEngineeringCalculator(
+            data=self.data,
+            period=5)
 
     def test_when_period_is_5_days_then_4_nan_is_returned_sma(self):
         self.calculator.get_simple_moving_average_based_on_close_prices()
@@ -40,9 +42,11 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
         self.assertEqual(len(sma), len(self.data['Close']))
         self.assertFalse(sma[4:].isna().any())
 
-    def test_when_period_is_5_days_then_5_nan_is_returned_gains(self):
+    def test_when_period_is_5_days_then_5_nan_is_returned_gains(
+            self):
         self.calculator.get_average_gains()
-        average_gains = self.calculator.data[f'Average_Gain_{self.calculator.period}']
+        average_gains = self.calculator.data[
+            f'Average_Gain_{self.calculator.period}']
         for i in range(5):
             self.assertTrue(pd.isna(average_gains[i]),
                             f"Expected NaN at index {i}, "
@@ -50,7 +54,8 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
 
     def test_when_period_is_5_days_then_gains_values_are_returned(self):
         self.calculator.get_average_gains()
-        average_gains = self.calculator.data[f'Average_Gain_{self.calculator.period}']
+        average_gains = self.calculator.data[
+            f'Average_Gain_{self.calculator.period}']
         self.assertEqual(average_gains[5], 0.2)
         self.assertEqual(average_gains[6], 0.2)
         self.assertEqual(average_gains[7], 0.6)
@@ -59,7 +64,8 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
 
     def test_when_period_is_5_days_then_5_nan_is_returned_loss(self):
         self.calculator.get_average_losses()
-        average_loss = self.calculator.data[f'Average_Loss_{self.calculator.period}']
+        average_loss = self.calculator.data[
+            f'Average_Loss_{self.calculator.period}']
         for i in range(5):
             self.assertTrue(pd.isna(average_loss[i]),
                             f"Expected NaN at index {i}, "
@@ -67,7 +73,8 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
 
     def test_when_period_is_5_days_then_loss_values_are_returned(self):
         self.calculator.get_average_losses()
-        average_loss = self.calculator.data[f'Average_Loss_{self.calculator.period}']
+        average_loss = self.calculator.data[
+            f'Average_Loss_{self.calculator.period}']
         self.assertEqual(average_loss[5], 1.2)
         self.assertEqual(average_loss[6], 1.2)
         self.assertEqual(average_loss[7], 0.8)
@@ -76,7 +83,8 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
 
     def test_when_period_is_5_days_then_5_nan_is_returned_rsi(self):
         self.calculator.calculate_rsi()
-        rsi = self.calculator.data[f'RSI_{self.calculator.period}']
+        rsi = self.calculator.data[
+            f'RSI_{self.calculator.period}']
         for i in range(5):
             self.assertTrue(pd.isna(rsi[i]),
                             f"Expected NaN at index {i}, "
@@ -84,7 +92,8 @@ class TestFeatureEngineeringCalculator(unittest.TestCase):
 
     def test_when_period_is_5_days_then_rsi_values_are_returned(self):
         self.calculator.calculate_rsi()
-        rsi = self.calculator.data[f'RSI_{self.calculator.period}']
+        rsi = self.calculator.data[
+            f'RSI_{self.calculator.period}']
         self.assertEqual(rsi[5], 14.285714285714292)
         self.assertEqual(rsi[6], 14.285714285714292)
         self.assertEqual(rsi[7], 42.857142857142854)
