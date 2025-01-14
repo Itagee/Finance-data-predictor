@@ -1,13 +1,17 @@
 import pandas as pd
+
+
 class FeatureEngineeringCalculator:
     def __init__(self, data, period):
         self.data = pd.DataFrame(data)
         self.period = period
 
-    def get_simple_moving_average_based_on_close_prices(self):
+    def get_simple_moving_average_based_on_close_prices(
+            self):
         self.data[f'SMA_{self.period}'] = self.data['Close'].rolling(window=self.period).mean()
 
-    def get_exponential_moving_average_based_on_close_prices(self):
+    def get_exponential_moving_average_based_on_close_prices(
+            self):
         self.data[f'EMA_{self.period}'] = self.data['Close'].ewm(span=self.period, adjust=False).mean()
 
     def get_average_gains(self):
@@ -38,6 +42,3 @@ class FeatureEngineeringCalculator:
 
     def calculate_bollinger_bands(self):
         pass
-
-
-
