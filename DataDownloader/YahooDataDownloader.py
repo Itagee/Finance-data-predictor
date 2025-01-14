@@ -8,7 +8,7 @@ class YahooDataDownloader:
         self.endDate = end_date
 
     def __str__(self):
-        return "Downloading and returning finacial data from Yahoo service"
+        return "Downloading and returning financial data from Yahoo service"
 
     def download_yahoo_data(self):
         return yf.download(self.dataType, self.startDate, self.endDate)
